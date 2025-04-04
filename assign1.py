@@ -58,7 +58,7 @@ if uploaded_files:
         #Data visualization
         st.subheader("Data Visualization")
         if st.checkbox(f"show visualization for {file.name}"):
-            st.bar_chart(df.select_dtypes(includes='number').iloc[:, :2])
+            st.bar_chart(df.select_dtypes(include='number').iloc[:, :2])
 
             # connversion options
             st.subheader("Conversion Options")
