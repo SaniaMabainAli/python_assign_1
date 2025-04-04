@@ -22,7 +22,7 @@ st.title("Datasweeper integrator by Sania Mabain Ali")
 st.write("Transfrom your files")
 
 #file uploader
-uploaded_files= st.file_uploader("Upload your files (accepts CSV or Excel):", type=["csv","xlxs"], accept_multiple_files=(True))
+uploaded_files= st.file_uploader("Upload your files (accepts CSV or Excel):", type=["csv","xlsx"], accept_multiple_files=(True))
 
 if uploaded_files:
     for file in uploaded_files:
@@ -30,7 +30,7 @@ if uploaded_files:
 
         if file_ext == ".csv":
             df = pd.read_csv(file)
-        elif file_ext == "xlxs":
+        elif file_ext == "xlsx":
             df = pd.read_excel(file)
         else:
             st.error(f"unsupported file type: {file_ext}")
@@ -72,7 +72,7 @@ if uploaded_files:
 
                 elif conversion_type == "Excel":
                     df.to.excel(buffer, index = False)
-                    file_name = file.name.replace(file_ext, ".xlxs")
+                    file_name = file.name.replace(file_ext, ".xlsx")
                     mime_type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
                 buffer.seek(0)
                 st.download_button(
